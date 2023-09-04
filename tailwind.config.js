@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend:  {
+      colors : {
+        "purple": "#cb98ff",
+      },
       fontFamily: {
         'primary': ['Blinker', 'sans-serif'],
       },
