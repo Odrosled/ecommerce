@@ -14,7 +14,9 @@ const NavBar = () => {
         </Link>
         <div className="flex gap-5">
           <p className="hover:underline cursor-pointer">CATEGORIES</p>
-          <p className="hover:underline cursor-pointer">PRODUCT PAGE</p>
+          <Link to={"/categories"}>
+            <p className="hover:underline cursor-pointer">PRODUCT PAGE</p>
+          </Link>
           <button onClick={show} className="relative">
             <img src="/assets/shopping-cart-simple.svg" alt="cart" />
             <div className="rounded-full bg-red-500 flex justify-center items-center text-white w-6 h-6 absolute bottom-0 right-0 transform translate-x-[50%] translate-y-[50%]">
