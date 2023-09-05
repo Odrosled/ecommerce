@@ -1,21 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetCategories } from "../hooks/useGetCaregories";
 import { useGetCategoryProducts } from "../hooks/useGetCategoryProducts";
-import { useState } from "react";
 import ProductCard from "../components/ProductCard";
 
 const CategoriesPage = () => {
-  const [selectedCategory, setSelectedCategory] =
-    useState<string>("electronics");
+  const params = useParams<{ cat: string }>();
 
   const { data } = useGetCategories();
 
   const { data: products } = useGetCategoryProducts({
     limit: 20,
-    category: selectedCategory,
+    category: params.cat ?? "electronics",
   });
-
-  console.log(products);
 
   return (
     <div className="p-10 flex flex-col">
@@ -45,13 +41,11 @@ const CategoriesPage = () => {
       <div>
         <ul className="flex justify-around mb-20">
           {data?.map((category: string) => (
-            <li
-              onClick={() => setSelectedCategory(category)}
-              className="py-2 px-5 border border-purple cursor-pointer hover:animate-pulse"
-              key={category}
-            >
-              {category}
-            </li>
+            <Link to={`/categories/${category}`}>
+              <li className="py-2 px-5 border border-purple cursor-pointer hover:animate-pulse" key={category}>
+                {category}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

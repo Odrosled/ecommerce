@@ -8,11 +8,7 @@ interface Params {
 }
 
 export async function fetchCategoryProducts({ limit, category }: Params) {
-  const { data } = await axios.get(
-    `https://fakestoreapi.com/products/category/${category}?limit=${
-      limit ?? 25
-    }`
-  );
+  const { data } = await axios.get(`https://fakestoreapi.com/products/category/${category}?limit=${limit ?? 25}`);
   return data;
 }
 
@@ -20,7 +16,6 @@ export function useGetCategoryProducts({ limit, category }: Params) {
   const data = useQuery<Product[]>({
     queryKey: ["products", category],
     queryFn: () => fetchCategoryProducts({ limit, category }),
-    enabled: !!category,
   });
   return data;
 }

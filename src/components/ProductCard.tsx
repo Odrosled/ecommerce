@@ -8,14 +8,10 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <Link to={`products/${product.id}`}>
+    <Link to={`/products/${product.id}`}>
       <div className="flex flex-col gap-4 border border-gray-300 p-4 cursor-pointer">
         <div>
-          <img
-            className="object-contain w-[200px] aspect-square mx-auto"
-            src={product.image}
-            alt={product.title}
-          />
+          <img className="object-contain w-[200px] aspect-square mx-auto" src={product.image} alt={product.title} />
         </div>
         <p className="line-clamp-1">{product.title}</p>
         <p className="font-semibold">{price(product.price)}</p>
