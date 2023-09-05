@@ -1,5 +1,5 @@
 // import { Link } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import TextOverlay from "../components/TextOverlay";
 import { useGetProducts } from "../hooks/useGetProducts";
