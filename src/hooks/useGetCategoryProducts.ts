@@ -18,8 +18,9 @@ export async function fetchCategoryProducts({ limit, category }: Params) {
 
 export function useGetCategoryProducts({ limit, category }: Params) {
   const data = useQuery<Product[]>({
-    queryKey: ["products"],
+    queryKey: ["products", category],
     queryFn: () => fetchCategoryProducts({ limit, category }),
+    enabled: !!category,
   });
   return data;
 }

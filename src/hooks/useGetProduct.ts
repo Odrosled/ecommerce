@@ -4,14 +4,13 @@ import { Product } from "../utils/types";
 
 export async function fetchProduct(id: string) {
   const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
-  return data 
+  return data;
 }
 
 export function useGetProduct(id: string) {
   const data = useQuery<Product>({
-    queryKey: ["product"],
-    queryFn: () => fetchProduct(id)
+    queryKey: ["product", id],
+    queryFn: () => fetchProduct(id),
   });
-  return data
+  return data;
 }
-

@@ -3,7 +3,7 @@ import axios from "axios";
 
 export async function fetchCategories() {
   const { data } = await axios.get(
-    `https://fakestoreapi.com/products/categories}`
+    "https://fakestoreapi.com/products/categories"
   );
   return data;
 }
