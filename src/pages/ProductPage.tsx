@@ -32,10 +32,10 @@ const ProductPage = () => {
   );
 
   return (
-    <section className="flex gap-12 p-12">
-      <img className="w-1/2" src={product.image} alt={product.title} />
+    <section className="flex flex-col md:flex-row gap-12 p-12">
+      <img className="w-1/2 mx-auto" src={product.image} alt={product.title} />
 
-      <div className="w-1/2">
+      <div className="flex-1 bg-gray-200 p-10">
         <div className="flex flex-col gap-3">
           <h1 className="text-2xl font-semibold">{product.title}</h1>
           <p className="text-gray-500">{product.description}</p>
