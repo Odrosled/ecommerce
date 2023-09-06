@@ -11,8 +11,10 @@ const NavBar = () => {
           <h1 className="font-bold tracking-widest text-xl text-purple drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] cursor-pointer">SHOPPALO</h1>
         </Link>
         <div className="flex gap-5">
-          <p className="hover:underline cursor-pointer text-lg">CATEGORIES</p>
           <Link to={"/categories"}>
+            <p className="hover:underline cursor-pointer text-lg">CATEGORIES</p>
+          </Link>
+          <Link to={"/"}>
             <p className="hover:underline cursor-pointer text-lg">PRODUCT PAGE</p>
           </Link>
           <button onClick={show} className="relative">

@@ -2,8 +2,11 @@ import { Link, useParams } from "react-router-dom";
 import { useGetCategories } from "../hooks/useGetCaregories";
 import { useGetCategoryProducts } from "../hooks/useGetCategoryProducts";
 import ProductCard from "../components/ProductCard";
+import { useState } from "react";
 
 const CategoriesPage = () => {
+  const [selectedCat, setSelectedCat] = useState<string>("");
+
   const params = useParams<{ cat: string }>();
 
   const { data } = useGetCategories();
@@ -36,13 +39,13 @@ const CategoriesPage = () => {
             <p className="text-sm pl-2 leading-none">Home</p>
           </Link>
         </div>
-        <h1 className="mx-auto font-bold text-2xl">ALL</h1>
+        <h1 className="mx-auto font-bold text-2xl">{selectedCat ?? "electronics"}</h1>
       </div>
       <div>
         <ul className="flex justify-around mb-20">
           {data?.map((category: string) => (
             <Link to={`/categories/${category}`}>
-              <li className="py-2 px-5 border border-purple cursor-pointer hover:animate-pulse" key={category}>
+              <li onClick={() => setSelectedCat(category)} className="py-2 px-5 border border-purple cursor-pointer hover:animate-pulse" key={category}>
                 {category}
               </li>
             </Link>
