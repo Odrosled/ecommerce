@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import TextOverlay from "../components/TextOverlay";
 import { useGetProducts } from "../hooks/useGetProducts";
+import Banner from "../components/Banner";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ const HomePage = () => {
           })}
         </div>
       </section>
+      <Banner />
     </main>
   );
 };
