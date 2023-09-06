@@ -27,9 +27,7 @@ const ProductPage = () => {
     setQuantity(quantity - 1);
   };
 
-  const isAlreadyInCart = cartItems.find(
-    (item) => item.product.id === product.id
-  );
+  const isAlreadyInCart = cartItems.find((item) => item.product.id === product.id);
 
   return (
     <section className="flex flex-col md:flex-row gap-12 p-12">
@@ -41,32 +39,17 @@ const ProductPage = () => {
           <p className="text-gray-500">{product.description}</p>
           <p className="text-xl">{price(product.price * quantity)}</p>
         </div>
-        <div className="mt-8 flex gap-6">
+        <div className="mt-8 flex flex-col items-center sm:flex-row gap-6">
           <div className="flex items-center gap-2">
-            <button
-              className="bg-gray-300 h-10 w-10 text-xl"
-              onClick={decrease}
-            >
+            <button className="bg-gray-300 h-10 w-10 text-xl" onClick={decrease}>
               -
             </button>
-            <p className="px-4 border border-gray-300 flex items-center">
-              {quantity}
-            </p>
-            <button
-              className="bg-gray-300 h-10 w-10 text-xl"
-              onClick={increase}
-            >
+            <p className="px-4 border border-gray-300 flex items-center">{quantity}</p>
+            <button className="bg-gray-300 h-10 w-10 text-xl" onClick={increase}>
               +
             </button>
           </div>
-          {isAlreadyInCart ? (
-            <Button onClick={() => removeFromCart(product.id)} text="Remove" />
-          ) : (
-            <Button
-              onClick={() => addItemToCart(product, quantity)}
-              text="Add to Cart"
-            />
-          )}
+          {isAlreadyInCart ? <Button onClick={() => removeFromCart(product.id)} text="Remove" /> : <Button onClick={() => addItemToCart(product, quantity)} text="Add to Cart" />}
         </div>
       </div>
     </section>
