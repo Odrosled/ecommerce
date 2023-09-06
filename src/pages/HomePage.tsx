@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <main>
-      <section className="flex justify-between gap-2 md:flex-row flex-col">
+      <section className="flex justify-between gap-2 md:flex-row flex-col mb-24">
         <div
           onClick={() => navigate("/categories/electronics")}
           className="relative bg-[url('/assets/electronics.jpg')] bg-cover bg-no-repeat md:w-2/4 h-[408px] hover:brightness-50 transition duration-300 cursor-pointer"
@@ -47,7 +47,7 @@ const HomePage = () => {
         </div>
       </section>
       <section className="mt-12">
-        <h2 className="font-semibold text-lg mb-8">Products we are proud of</h2>
+        <h2 className="font-semibold text-2xl mb-8">Products we are proud of</h2>
         <div className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-8">
           {data.map((product) => {
             return <ProductCard key={product.id} product={product} />;
