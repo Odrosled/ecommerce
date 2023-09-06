@@ -1,17 +1,13 @@
 // import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import { useGetProducts } from "../hooks/useGetProducts";
 import Banner from "../components/Banner";
 import BannerMenu from "../components/BannerMenu";
 
 const HomePage = () => {
-  const navigate = useNavigate();
-
   const { data, isLoading, isError } = useGetProducts({
     limit: 8,
   });
-  // const { data: productData } = useGetProduct("2");
 
   if (isLoading) return <p>Loading...</p>;
 

@@ -9,7 +9,7 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Link to={`/products/${product.id}`}>
-      <div className="flex flex-col gap-4 border border-gray-300 p-4 cursor-pointer">
+      <div className="flex flex-col gap-4 border border-gray-300 hover:border-gray-500 transition duration-200 p-4 cursor-pointer">
         <div>
           <img className="object-contain w-[200px] aspect-square mx-auto" src={product.image} alt={product.title} />
         </div>
